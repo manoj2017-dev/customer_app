@@ -2,3 +2,4 @@ flask
 flask-pymongo
 python-dotenv
 werkzeug
+flask_sqlalchemy
