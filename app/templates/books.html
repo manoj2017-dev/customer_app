@@ -1,9 +1,78 @@
-<h2>Books</h2>
-<ul>
-  {% for book in books %}
-    <li>
-      <strong>{{ book.title }}</strong> by {{ book.author }}<br>
-      <em>{{ book.description }}</em>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .book-list {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            background-color: #e7f4e7;
+        }
+
+        strong {
+            color: #2C6E49;
+            font-size: 20px;
+        }
+
+        em {
+            display: block;
+            color: #555;
+            font-style: italic;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-list">
+        <h2>Books</h2>
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.title }}</strong> by {{ book.author }}<br>
+                    <em>{{ book.description }}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
