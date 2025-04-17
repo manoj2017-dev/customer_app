@@ -3,26 +3,26 @@ from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from config import Config
+from .models import load_user
 
-# Initialize extensions
 mongo = PyMongo()
 db = SQLAlchemy()
 login_manager = LoginManager()
+login_manager.login_view = 'main.login'
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # Initialize extensions
     mongo.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
 
-    # Import models so they are registered with SQLAlchemy
-    from .models import Book, User  # Add your models here
-
-    # Import and register blueprints
-    from .routes import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    from .routes import main
+    app.register_blueprint(main)
 
     return app
+
+@login_manager.user_loader
+def user_loader(user_id):
+    return load_user(user_id)
