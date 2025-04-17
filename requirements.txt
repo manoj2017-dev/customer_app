@@ -2,4 +2,4 @@ flask
 flask-pymongo
 python-dotenv
 werkzeug
-flask_sqlalchemy
+flask_sqlalchemy==2.5.1
